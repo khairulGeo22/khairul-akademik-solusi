@@ -301,6 +301,74 @@
             <p class="text-[10px] text-slate-400 font-black uppercase tracking-widest tracking-tighter">&copy; 2026 Designed for Academic Excellence</p>
         </div>
     </footer>
+<div id="promoModal" class="fixed inset-0 z-[100] flex items-center justify-center px-4 opacity-0 pointer-events-none transition-opacity duration-500">
+    <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm"></div>
+    
+    <div class="relative bg-white rounded-[3rem] overflow-hidden shadow-2xl max-w-lg w-full transform scale-95 transition-transform duration-500" id="modalContent">
+        <div class="gradient-blue p-8 text-center text-white relative">
+            <div class="absolute top-4 right-6">
+                <button onclick="closePromo()" class="text-white/50 hover:text-white transition text-2xl">&times;</button>
+            </div>
+            <span class="bg-amber-400 text-blue-900 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">Limited Offer</span>
+            <h3 class="text-3xl font-black mt-4 italic uppercase tracking-tighter">Promo April</h3>
+            <p class="text-blue-100 text-sm font-bold uppercase tracking-widest mt-1">Pelatihan Mendeley Professional</p>
+        </div>
+        
+        <div class="p-8 bg-white">
+            <div class="space-y-4">
+                <div class="flex justify-between items-center p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                    <div>
+                        <p class="text-[10px] font-black text-blue-600 uppercase tracking-widest">Privat Mandiri</p>
+                        <p class="text-slate-500 text-xs italic">1-on-1 Intensif</p>
+                    </div>
+                    <p class="text-xl font-black text-slate-800 tracking-tighter">Rp120.000</p>
+                </div>
+                
+                <div class="flex justify-between items-center p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                    <div>
+                        <p class="text-[10px] font-black text-blue-600 uppercase tracking-widest">Privat Grup</p>
+                        <p class="text-slate-500 text-xs italic">Minimal 3 Orang</p>
+                    </div>
+                    <p class="text-xl font-black text-slate-800 tracking-tighter">Rp50.000<span class="text-[10px] text-slate-400 uppercase font-bold tracking-normal"> /org</span></p>
+                </div>
+            </div>
 
+            <a href="https://wa.me/6285262608383" class="block w-full text-center mt-6 py-4 bg-blue-600 text-white rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-blue-700 transition shadow-lg shadow-blue-100">
+                Klaim Promo via WhatsApp
+            </a>
+            <p class="text-center mt-4 text-[9px] text-slate-400 font-bold uppercase tracking-widest italic">
+                Iklan ini akan tertutup otomatis dalam beberapa detik
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById('promoModal');
+    const content = document.getElementById('modalContent');
+
+    function openPromo() {
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        modal.classList.add('opacity-100');
+        content.classList.remove('scale-95');
+        content.classList.add('scale-100');
+    }
+
+    function closePromo() {
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        modal.classList.remove('opacity-100');
+        content.classList.add('scale-95');
+        content.classList.remove('scale-100');
+    }
+
+    // Eksekusi saat halaman terbuka
+    window.onload = () => {
+        // Muncul setelah 1.5 detik agar user tidak kaget
+        setTimeout(openPromo, 1500);
+
+        // Menutup otomatis setelah 8 detik muncul
+        setTimeout(closePromo, 9500); 
+    };
+</script>
 </body>
 </html>
